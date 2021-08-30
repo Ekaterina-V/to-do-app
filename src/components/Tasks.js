@@ -5,7 +5,10 @@ export const Tasks = ({ tasks }) => {
     <ul class="list-group">
       {tasks.map(task => (
         <li className="list-group-item task" key={task.id}>
-          {task.title}
+          <div>
+            <strong>{task.title}</strong>
+            <span>{new Date().toLocaleDateString()}</span>
+          </div>
           <button type="button" class="btn btn-outline-warning btn-sm">
             Delete
           </button>
