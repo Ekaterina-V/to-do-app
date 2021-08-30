@@ -10,6 +10,7 @@ export const Form = () => {
     if (value.trim()) {
       //...add new task
       alert.show('New task has been added', 'success');
+      setValue('');
     } else {
       alert.show('Add new task');
     }
