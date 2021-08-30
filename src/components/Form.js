@@ -6,7 +6,13 @@ export const Form = () => {
   const alert = useContext(AlertContext);
   const submitHandler = event => {
     event.preventDefault();
-    alert.show(value, 'success');
+
+    if (value.trim()) {
+      //...add new task
+      alert.show('New task has been added', 'success');
+    } else {
+      alert.show('Add new task');
+    }
   };
   return (
     <form onSubmit={submitHandler}>
