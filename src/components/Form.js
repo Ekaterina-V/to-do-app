@@ -1,15 +1,24 @@
 import React, { useState, useContext } from 'react';
 import { AlertContext } from '../context/alert/alertContext';
+import { FirebaseContext } from '../context/database/firebaseContext';
 
 export const Form = () => {
   const [value, setValue] = useState('');
   const alert = useContext(AlertContext);
+  const firebase = useContext(FirebaseContext);
+
   const submitHandler = event => {
     event.preventDefault();
 
     if (value.trim()) {
-      //...add new task
-      alert.show('New task has been added', 'success');
+      firebase
+        .addTask(value.trim())
+        .then(() => {
+          alert.show('New task has been added', 'success');
+        })
+        .catch(() => {
+          alert.show('Error', 'danger');
+        });
       setValue('');
     } else {
       alert.show('Add new task');

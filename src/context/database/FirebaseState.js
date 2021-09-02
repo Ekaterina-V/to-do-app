@@ -19,6 +19,8 @@ export const FirebaseState = ({ children }) => {
     showLoader();
     const res = await axios.get(`${url}/tasks.json`);
 
+    console.log('fetchTasks', res.data);
+
     const payload = Object.keys(res.data).map(key => {
       return {
         ...res.data[key],
@@ -37,6 +39,7 @@ export const FirebaseState = ({ children }) => {
 
     try {
       const res = await axios.post(`${url}/tasks.json`, task);
+      console.log('addTask', res.data);
       const payload = {
         ...task,
         id: res.data.name,
