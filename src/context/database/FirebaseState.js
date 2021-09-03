@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import { FirebaseContext } from './firebaseContext';
 import { firebaseReducer } from './firebaseReducer';
-import { ADD_TASK, FETCH_TASK, REMOVE_TASK, SHOW_LOADER } from '../types';
+import { ADD_TASK, FETCH_TASKS, REMOVE_TASK, SHOW_LOADER } from '../types';
 
 const url = process.env.TO_DO_APP_URL;
 
@@ -28,7 +28,7 @@ export const FirebaseState = ({ children }) => {
       };
     });
 
-    dispatch({ type: FETCH_TASK, payload });
+    dispatch({ type: FETCH_TASKS, payload });
   };
 
   const addTask = async title => {
