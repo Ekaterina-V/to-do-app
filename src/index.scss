@@ -41,6 +41,9 @@ code {
   animation: task 1s ease-in;
 }
 
+.task-enter-active {
+  animation: task 3s ease-out alternate-reverse;
+}
 @keyframes task {
   25% {
     transform: translateX(0);
