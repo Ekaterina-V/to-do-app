@@ -6,7 +6,11 @@ const handlers = {
     ...state,
     tasks: [...state.tasks, payload],
   }),
-  [FETCH_TASKS]: (state, { payload }) => ({ ...state, tasks: payload }),
+  [FETCH_TASKS]: (state, { payload }) => ({
+    ...state,
+    tasks: payload,
+    loading: false,
+  }),
   [REMOVE_TASK]: (state, { payload }) => ({
     ...state,
     tasks: state.tasks.filter(task => task.id !== payload),
