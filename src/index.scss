@@ -23,3 +23,17 @@ code {
     margin-right: 2rem;
   }
 }
+
+.alert-enter {
+  opacity: 0;
+}
+
+.alert-enter-active {
+  opacity: 2;
+  transition: opacity 600ms ease-out;
+}
+
+.alert-exit-active {
+  opacity: 0;
+  transition: opacity 350ms ease-out;
+}
